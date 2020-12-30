@@ -1,1 +1,1 @@
-discord: deno run -A main.ts
+discord: deno run -A mod.ts
