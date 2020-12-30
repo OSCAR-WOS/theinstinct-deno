@@ -1,1 +1,1 @@
-discord: deno run -A index.ts
+discord: deno run -A mod.ts
