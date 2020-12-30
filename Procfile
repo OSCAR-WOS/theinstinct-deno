@@ -1,0 +1,1 @@
+discord: deno run -A main.ts
