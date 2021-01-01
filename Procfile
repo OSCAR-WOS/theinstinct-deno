@@ -1,1 +1,1 @@
-discord: deno -A mod.ts
+worker: deno run -A mod.ts
