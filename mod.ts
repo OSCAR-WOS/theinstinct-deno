@@ -2,6 +2,7 @@ import "https://deno.land/x/dotenv@v2.0.0/load.ts";
 
 import { importDirectory } from "./src/utils/helpers.ts";
 import { botCache, startBot, Intents } from "./deps.ts";
+import { sqlConnect } from "./src/utils/sql.ts";
 
 await Promise.all(
   [
@@ -9,6 +10,8 @@ await Promise.all(
     "./src/controllers",
   ].map((path) => importDirectory(Deno.realPathSync(path)))
 );
+
+await sqlConnect();
 
 try {
   await startBot({
