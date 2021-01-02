@@ -1,17 +1,18 @@
 import "https://deno.land/x/dotenv@v2.0.0/load.ts";
 
+import { botCache, Intents, startBot } from "./deps.ts";
 import { importDirectory } from "./src/utils/helpers.ts";
-import { botCache, startBot, Intents } from "./deps.ts";
 import { sqlConnect } from "./src/utils/sql.ts";
 
 await Promise.all(
   [
     "./src/events",
+    "./src/structures",
     "./src/controllers",
-  ].map((path) => importDirectory(Deno.realPathSync(path)))
+  ].map((path) => importDirectory(Deno.realPathSync(path))),
 );
 
-await sqlConnect();
+sqlConnect();
 
 try {
   await startBot({
